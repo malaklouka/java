@@ -1,0 +1,105 @@
+
+
+import java.awt.*;
+import javax.swing.*;
+public class Club extends JFrame {
+ public Club(String titre) {
+ super(titre);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ JPanel p1 = new JPanel();
+ JPanel p2 = new JPanel();
+ JPanel p3 = new JPanel();
+ JLabel Nom = new JLabel("Nom : ");
+ JTextField tfNom = new JTextField(20);
+ JPanel pNom = new JPanel();
+ pNom.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pNom.add(Nom);
+ pNom.add(tfNom);
+ JLabel Prenom = new JLabel("prenom : ");
+ JTextField tfPrenom = new JTextField(20);
+ JPanel pPrenom = new JPanel();
+ pPrenom.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pPrenom.add(Prenom);
+ pPrenom.add(tfPrenom);
+ JLabel Naissance = new JLabel("Naissance : ");
+ JTextField tfNaissance = new JTextField(20);
+ JPanel pNaissance = new JPanel();
+ pNaissance.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pNaissance.add(Naissance);
+ pNaissance.add(tfNaissance);
+ JLabel lAdresse = new JLabel("Adresse : ");
+ JTextArea taAdresse = new JTextArea(3, 20);
+ JPanel pAdresse = new JPanel();
+ pAdresse.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pAdresse.add(lAdresse);
+ pAdresse.add(taAdresse);
+ ButtonGroup bgSexe = new ButtonGroup();
+ JRadioButton cHomme = new JRadioButton("Homme", true);
+ JRadioButton cFemme = new JRadioButton("Femme", false);
+ JPanel pSexe = new JPanel();
+ JLabel labelSexe = new JLabel("Sexe : ");
+ bgSexe.add(cHomme);
+ bgSexe.add(cFemme);
+ pSexe.add(labelSexe);
+ pSexe.add(cHomme);
+ pSexe.add(cFemme);
+ p1.setLayout(new GridLayout(5, 1));
+ p1.add(pNom);
+ p1.add(pPrenom);
+ p1.add(pNaissance);
+ p1.add(pAdresse);
+ p1.add(pSexe);
+ JLabel lCategorie = new JLabel("Categorie : ");
+ String categories[] = {"Jeune", "Retrait", "Professionnel"};
+ JComboBox cbCategorie = new JComboBox(categories);
+ JPanel pCategorie = new JPanel();
+ pCategorie.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pCategorie.add(lCategorie);
+ pCategorie.add(cbCategorie);
+ JLabel lSport = new JLabel("Sport : ");
+ String sports[] = {"Tennis", "Volley", "Basketball", "Handball", "Football"};
+ JList listSport = new JList(sports);
+ JPanel pSport = new JPanel();
+ pSport.setLayout(new FlowLayout(FlowLayout.RIGHT));
+ pSport.add(lSport);
+ pSport.add(listSport);
+ JPanel pLangues = new JPanel(new GridLayout(1, 2));
+ JPanel pl1 = new JPanel();
+ JLabel labelLangues = new JLabel("Langues : ");
+ pl1.add(labelLangues);
+ JPanel pl2 = new JPanel(new GridLayout(4, 1));
+ JCheckBox cbAr = new JCheckBox("Arabe");
+ JCheckBox cbFr = new JCheckBox("Francais");
+ JCheckBox cbEn = new JCheckBox("Anglais");
+ JCheckBox cbIt = new JCheckBox("Italien");
+ pl2.add(cbAr);
+ pl2.add(cbFr);
+ pl2.add(cbEn);
+ pl2.add(cbIt);
+ pLangues.add(pl1);
+ pLangues.add(pl2);
+ p2.setLayout(new GridLayout(3, 1));
+ p2.add(pLangues);
+ p2.add(pCategorie);
+ p2.add(pSport);
+
+ JButton bPrecedant = new JButton("<< Precedant");
+ JButton bSuivant = new JButton("Suivant >>");
+ JButton bValider = new JButton("Valider");
+ JButton bAnnuler = new JButton("Annuler");
+ p3.setLayout(new FlowLayout(FlowLayout.CENTER));
+ p3.add(bPrecedant);
+ p3.add(bSuivant);
+ p3.add(bValider);
+ p3.add(bAnnuler);
+ setLayout(new BorderLayout());
+ add(p1, "West");
+ add(p2, "East");
+ add(p3, "South");
+ pack();
+ setVisible(true);
+ }
+ public static void main(String[] args) {
+ Club c = new Club("Membres de club de sport");
+ }
+}
